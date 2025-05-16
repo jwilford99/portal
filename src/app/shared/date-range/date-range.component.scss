@@ -1,0 +1,33 @@
+.header {
+  text-align: center;
+  line-height: 1.5;
+  background-color: (var(--ion-color-primary));
+  color: var(--ion-color-primary-contrast);
+  p.main-text {
+    padding-top: 4px;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+  }
+  p.compare-text {
+    margin: 0;
+    font-size: 14px;
+  }
+}
+
+.compare-select {
+  display: none;
+}
+
+ion-datetime-button::part(native) {
+  opacity: .7;
+}
+
+h3 {
+  margin: 0;
+}
+
+.select {
+  margin: 6px 0 0;
+  text-align: center;
+}

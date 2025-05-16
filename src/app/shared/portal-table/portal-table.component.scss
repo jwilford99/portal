@@ -1,0 +1,17 @@
+
+.header-row {
+  border-bottom: 1px solid var(--ion-item-border-color);
+  ion-col {
+    font-weight: bold;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    font-size: 13px;
+  }
+}
+
+.data-item {
+  font-size: 12px;
+  word-break: break-word;
+}

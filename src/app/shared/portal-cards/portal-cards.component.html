@@ -1,0 +1,15 @@
+<div class="cards">
+  @if (data().bill !== '0') {
+    @for (l of labels(); track l; let i = $index) {
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{ l | dataKey }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <span>{{ numberFormatService.getValue(formattedData, l) }}</span>
+        </ion-card-content>
+      </ion-card>
+    }
+  }
+</div>
+

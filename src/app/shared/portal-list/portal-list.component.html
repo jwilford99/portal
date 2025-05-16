@@ -1,0 +1,8 @@
+@if (data()) {
+    @for (l of labels(); track l) {
+      <ion-item [color]="color()">
+        <ion-label>{{ l | dataKey }}</ion-label>
+       <span>{{ numberFormatService.getValue(formattedData, l) }}</span>
+      </ion-item>
+    }
+}

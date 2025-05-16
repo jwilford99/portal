@@ -1,0 +1,18 @@
+<ion-item>
+  <ion-grid>
+    @if (data()) {
+      <ion-row class="header-row">
+        @for (c of columns(); track c; let i = $index) {
+          <ion-col>{{ c | dataKey }}</ion-col>
+        }
+      </ion-row>
+      @for (d of data(); track d; let i = $index) {
+        <ion-row>
+          @for (c of columns(); track c; let i = $index) {
+            <ion-col class="data-item">{{ numberFormatService.getValue(d, c) }}</ion-col>
+          }
+        </ion-row>
+      }
+    }
+  </ion-grid>
+</ion-item>

@@ -1,0 +1,28 @@
+<ion-item color="medium">
+  <ion-select interface="action-sheet" [interfaceOptions]="alertOptions" (ionChange)="onChange($event)" label="Date Range" value="mtd">
+    @for (v of rangeList; track v; let i = $index) {
+      <ion-select-option [value]="v.value">{{ v.viewValue }}</ion-select-option>
+    }
+  </ion-select>
+</ion-item>
+<div class="header">
+  <p class="main-text">{{ format(parseISO(dateService.dateRange.value['start']), 'MMM dd, yyyy') }}
+    - {{ format(parseISO(dateService.dateRange.value['end']), 'MMM dd, yyyy') }}</p>
+  @if (dateService.showCompare.value) {
+    <p class="compare-text">Compare: {{ format(parseISO(dateService.compareDateRange.value['start']), 'MMM dd, yyyy') }}
+      - {{ format(parseISO(dateService.compareDateRange.value['end']), 'MMM dd, yyyy') }}</p>
+    }
+</div>
+@if (showCustom) {
+  <app-range-calendar [type]="'custom'"></app-range-calendar>
+}
+<ion-select interface="action-sheet" [interfaceOptions]="customAlertOptions" class="compare-select" #compareSelect (ionChange)="onCompareChange($event)" label="Date Range to Compare" value="mtd">
+  @for (v of compareRangeList; track v; let i = $index) {
+    <ion-select-option [value]="v.value">{{ v.viewValue }}</ion-select-option>
+  }
+</ion-select>
+
+@if (showCompareCal) {
+  <app-range-calendar slot="content" [type]="'compare'"></app-range-calendar>
+}
+
