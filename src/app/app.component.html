@@ -1,0 +1,70 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu side="start" menuId="start" contentId="main-content" type="overlay">
+      <ion-content>
+        <app-date-range></app-date-range>
+        <ion-list>
+          @for (p of appPages; track p; let i = $index) {
+            <ion-menu-toggle auto-hide="false" menu="start">
+              <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false"
+                        routerLinkActive="selected">
+                <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'"
+                          [md]="p.icon + '-sharp'"></ion-icon>
+                <ion-label>{{ p.title }}</ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+          }
+          <hr>
+          <ion-menu-toggle auto-hide="false" menu="start">
+            <ion-item routerDirection="root" [routerLink]="'/dashboard/billing'" lines="none" detail="false"
+                      routerLinkActive="selected">
+              <ion-icon aria-hidden="true" slot="start" [ios]="'card-outline'" [md]="'card-sharp'"></ion-icon>
+              <ion-label>Billing</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false" menu="start">
+            <ion-item routerDirection="root" [routerLink]="'/dashboard/contact'" lines="none" detail="false"
+                      routerLinkActive="selected">
+              <ion-icon aria-hidden="true" slot="start" [ios]="'chatbox-ellipses-outline'"
+                        [md]="'chatbox-ellipses-sharp'"></ion-icon>
+              <ion-label>Contact</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+  <ion-menu side="end" menuId="end" contentId="main-content" type="overlay">
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle auto-hide="false" menu="end">
+          <ion-item lines="none" routerDirection="root" [routerLink]="'profile/password'" detail="false">
+            <ion-icon slot="start" [ios]="'lock-closed-outline'" [md]="'lock-closed-sharp'"></ion-icon>
+            <ion-label class="profile">Change Password</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="false" menu="end">
+          <a href="https://geniusmonkey.com/contact" target="_blank">
+            <ion-item lines="none" routerDirection="root" detail="false">
+              <ion-icon slot="start" [ios]="'help-circle-outline'" [md]="'help-circle-sharp'"></ion-icon>
+              <ion-label class="profile">Support</ion-label>
+            </ion-item>
+          </a>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="false" menu="end">
+          <ion-item lines="none" detail="false">
+            <ion-icon slot="start" [ios]="'log-out-outline'" [md]="'log-out-sharp'"></ion-icon>
+            <ion-label class="profile">Log Out</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <hr>
+        <ion-item lines="none" detail="false">
+          <ion-toggle class="theme" labelPlacement="end" justify="start" [checked]="dark"
+                      (ionChange)="onThemeChange($event)">Theme
+          </ion-toggle>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+</ion-app>
