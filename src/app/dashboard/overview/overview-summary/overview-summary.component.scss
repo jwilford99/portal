@@ -1,0 +1,27 @@
+.portal-cards {
+  ion-card-header {
+    &#open-modal {
+      h2.channel-label {
+        margin: 0;
+      }
+    }
+    ion-card-title {
+      display: grid;
+      grid-template-columns: 1fr 150px;
+      gap: 10px;
+
+      .logo {
+        max-height: 70px;
+        background-color: rgba(#fff, .9);
+        padding: 10px 10px 0;
+        border-radius: 50px;
+        box-shadow: 0 0 10px rgba(#000, .2);
+        margin: auto 0;
+      }
+    }
+  }
+
+  ion-card-content {
+    padding: 10px;
+  }
+}

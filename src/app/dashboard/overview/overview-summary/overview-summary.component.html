@@ -1,0 +1,80 @@
+<ion-content class="tab-container">
+  @if (data.combinedResults) {
+    <ion-card color="danger" class="overview-main">
+      <ion-card-header>
+        <ion-card-title>Combined Campaign Results</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <app-portal-list [data]="data?.combinedResults"
+                           [labels]="['impressions', 'clicks', 'bill']"></app-portal-list>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  }
+
+  @if (data.attribution) {
+    <ion-card color="danger" class="overview-main">
+      <ion-card-header>
+        <ion-card-title>Attribution</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <app-portal-list [data]="data?.attribution"
+                         [labels]="['conversionsEffective', 'conversionsAll', 'revenueAssumed', 'revenueTransacted', 'billRoas']"></app-portal-list>
+      </ion-card-content>
+    </ion-card>
+  }
+
+  @if (data.campaignData) {
+    <ion-card color="danger" class="overview-main">
+      <ion-card-header>
+        <ion-card-title>Campaigns</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-accordion-group>
+            @for (d of data?.campaignData; track d; let i = $index) {
+              <ion-accordion>
+                <ion-item slot="header">
+                  <ion-label>{{ d.campaignName }}</ion-label>
+                </ion-item>
+                <ion-list class="sub-list" slot="content">
+                  <app-portal-list [data]="d" [color]="'medium'"
+                                   [accordionTitle]="d.campaignName"
+                                   [labels]="['serviceName', 'bill', 'impressions', 'clicks', 'ctr', 'cpmBill', 'cpcBill']">
+                  </app-portal-list>
+                </ion-list>
+              </ion-accordion>
+            }
+          </ion-accordion-group>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  }
+
+  @if (serviceData) {
+    @for (d of serviceData; track d; let i = $index) {
+      <ion-card class="portal-cards" [color]="getServiceColor(d.channelName)" (click)="selectedChannel = d.channelName">
+        <ion-card-header id="{{d.bill === '0' && 'open-modal'}}">
+          <ion-card-title>
+            <div class="logo">
+              <img src="{{getChannelLogo(d)}}" alt="Channel">
+            </div>
+            <h2 class="channel-label">{{getChannelLabel(d)}}
+              @if (d.bill === '0') {
+              <ion-icon style="position: relative; top: 4px;" [ios]="'information-circle'" [md]="'information-circle'"></ion-icon>
+              }
+            </h2>
+          </ion-card-title>
+        </ion-card-header>
+        @if (parseInt(d.bill) > 0) {
+        <ion-card-content>
+          <app-portal-cards [data]="d" [labels]="['bill', 'impressions', 'clicks', 'ctr', 'cpmBill', 'cpcBill', 'conversionsEffective']"></app-portal-cards>
+        </ion-card-content>
+        }
+      </ion-card>
+    }
+    <app-service-cta-modal [selectedChannel]="selectedChannel"></app-service-cta-modal>
+  }
+
+</ion-content>

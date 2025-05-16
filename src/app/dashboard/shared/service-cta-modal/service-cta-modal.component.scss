@@ -1,0 +1,25 @@
+ion-modal {
+  ion-card {
+    ion-card-content {
+      text-align: center;
+      font-size: 18px;
+      .gm-cost {
+        font-size: 28px;
+      }
+      .industry-cost {
+        font-size: 20px;
+      }
+      .hr-line {
+        background-color: var(--ion-color-primary-contrast);
+        margin: .5em 2em;
+      }
+    }
+  }
+  .cta {
+    padding: 0 1em;
+    font-size: 23px;
+    line-height: 36px;
+    font-weight: 300;
+    text-align: center;
+  }
+}

@@ -1,0 +1,28 @@
+<ion-content>
+  @if (data.campaignData) {
+    <ion-card color="tertiary">
+      <ion-card-header>
+        <ion-card-title>Campaigns</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-accordion-group>
+            @for (d of data?.campaignData; track d; let i = $index) {
+              <ion-accordion>
+                <ion-item slot="header">
+                  <ion-label>{{ d.campaignName }}</ion-label>
+                </ion-item>
+                <ion-list class="sub-list" slot="content">
+                  <app-portal-list [data]="d" [color]="'tertiary'"
+                                   [accordionTitle]="d.campaignName"
+                                   [labels]="['serviceName', 'bill', 'impressions', 'clicks', 'ctr', 'cpmBill', 'cpcBill']">
+                  </app-portal-list>
+                </ion-list>
+              </ion-accordion>
+            }
+          </ion-accordion-group>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  }
+</ion-content>

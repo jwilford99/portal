@@ -1,0 +1,75 @@
+<ion-tabs #tab>
+  <ion-tab tab="overview">
+    <div id="summary-page">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Overview</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <app-overview-summary></app-overview-summary>
+    </div>
+  </ion-tab>
+  <ion-tab tab="reports">
+    <div id="reports-page">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Reports</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <app-overview-reports></app-overview-reports>
+    </div>
+  </ion-tab>
+  <ion-tab tab="audience">
+    <div id="audience-page">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Audience</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <app-overview-audience></app-overview-audience>
+    </div>
+  </ion-tab>
+  <ion-tab tab="demographics">
+    <div id="demographics-page">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Demographics</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <app-overview-demographics></app-overview-demographics>
+    </div>
+  </ion-tab>
+  <ion-tab tab="attribution">
+    <div id="attribution-page">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Attribution</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <app-overview-attribution></app-overview-attribution>
+    </div>
+  </ion-tab>
+
+  <ion-tab-bar #tabs slot="bottom" (click)="onTabSelect(tabs)">
+    <ion-tab-button tab="overview">
+      <ion-icon name="stats-chart"></ion-icon>
+      Overview
+    </ion-tab-button>
+    <ion-tab-button tab="reports">
+      <ion-icon name="document"></ion-icon>
+      Reports
+    </ion-tab-button>
+    <ion-tab-button tab="audience">
+      <ion-icon name="people"></ion-icon>
+      Audience
+    </ion-tab-button>
+    <ion-tab-button tab="demographics">
+      <ion-icon name="pie-chart"></ion-icon>
+      Demographics
+    </ion-tab-button>
+    <ion-tab-button tab="attribution">
+      <ion-icon name="ribbon"></ion-icon>
+      Attribution
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

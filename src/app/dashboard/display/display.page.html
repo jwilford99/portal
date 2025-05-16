@@ -1,0 +1,93 @@
+<ion-tabs>
+  <ion-tab tab="summary">
+    <div id="summary-page">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Summary</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <app-display-summary></app-display-summary>
+    </div>
+  </ion-tab>
+  <ion-tab tab="placements">
+    <div id="placements-page">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Placements</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <app-display-placements></app-display-placements>
+    </div>
+  </ion-tab>
+  <ion-tab tab="ad-preview">
+    <div id="ad-preview-page">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Ad Preview</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <app-display-ad-preview></app-display-ad-preview>
+    </div>
+  </ion-tab>
+  <ion-tab tab="ad-size">
+    <div id="ad-size-page">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Ad Size</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <app-display-ad-size></app-display-ad-size>
+    </div>
+  </ion-tab>
+  <ion-tab tab="attribution">
+    <div id="attribution-page">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Attribution</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <app-display-attribution></app-display-attribution>
+    </div>
+  </ion-tab>
+  @if (insights) {
+    <ion-tab tab="insights">
+      <div id="insights-page">
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Audience Insights</ion-title>
+          </ion-toolbar>
+        </ion-header>
+        <app-display-audience></app-display-audience>
+      </div>
+    </ion-tab>
+  }
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="summary">
+      <ion-icon name="stats-chart"></ion-icon>
+      Summary
+    </ion-tab-button>
+    <ion-tab-button tab="placements">
+      <ion-icon name="document"></ion-icon>
+      Placements
+    </ion-tab-button>
+    <ion-tab-button tab="ad-preview">
+      <ion-icon name="aperture"></ion-icon>
+      Ad Preview
+    </ion-tab-button>
+    <ion-tab-button tab="ad-size">
+      <ion-icon name="crop"></ion-icon>
+      Ad Size
+    </ion-tab-button>
+    <ion-tab-button tab="attribution">
+      <ion-icon name="ribbon"></ion-icon>
+      Attribution
+    </ion-tab-button>
+    @if (insights) {
+    <ion-tab-button tab="insights">
+      <ion-icon name="analytics"></ion-icon>
+      Audience Insights
+    </ion-tab-button>
+    }
+  </ion-tab-bar>
+</ion-tabs>

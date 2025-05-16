@@ -1,0 +1,45 @@
+<ion-modal #modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button (click)="onCancel(modal)">Cancel</ion-button>
+        </ion-buttons>
+        <ion-title>Genius Monkey {{selectedChannel()}}</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="onConfirm(modal)" [strong]="true">Learn More</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-card color="primary">
+        <ion-card-header>
+          <ion-card-title>Genius Monkey {{title()}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <span><i>{{subTitle1()}}</i></span><br>
+          <span class="gm-cost">{{gmCost()}}</span><br>
+          <hr class="hr-line">
+          <span>Industry Avg:</span><br>
+          <span class="industry-cost">{{industryCost()}}</span>
+        </ion-card-content>
+      </ion-card>
+      <ion-card color="danger">
+        <ion-card-header>
+          <ion-card-title>Genius Monkey {{title()}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <span><i>{{subTitle2()}}</i></span><br>
+          <span class="gm-cost">{{gmCost2()}}</span><br>
+          <hr class="hr-line">
+          <span>Industry Avg:</span><br>
+          <span class="industry-cost">{{industryCost2()}}</span>
+        </ion-card-content>
+      </ion-card>
+      <div class="cta">
+        <p>See how Genius Monkey's Programmatic {{title()}} solution can help elevate your marketing strategy.</p>
+        <ion-button (click)="onConfirm(modal)">Learn More</ion-button>
+      </div>
+    </ion-content>
+  </ng-template>
+</ion-modal>
