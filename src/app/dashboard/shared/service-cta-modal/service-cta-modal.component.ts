@@ -1,16 +1,17 @@
-import {Component, effect, input, InputSignal, OnInit, signal} from '@angular/core';
+import {Component, effect, input, InputSignal, signal} from '@angular/core';
 import {
   IonButton,
-  IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,
+  IonButtons,
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonCardTitle,
   IonContent,
   IonHeader,
-  IonItem, IonLabel,
   IonModal,
-  IonTitle,
   IonToolbar
 } from "@ionic/angular/standalone";
 import {OverlayEventDetail} from "@ionic/core/components";
-import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-service-cta-modal',
@@ -21,17 +22,12 @@ import {RouterLink} from "@angular/router";
     IonButtons,
     IonContent,
     IonHeader,
-    IonItem,
     IonModal,
-    IonTitle,
     IonToolbar,
-    IonLabel,
     IonCard,
     IonCardHeader,
     IonCardTitle,
-    IonCardSubtitle,
-    IonCardContent,
-    RouterLink
+    IonCardContent
   ]
 })
 export class ServiceCtaModalComponent {
